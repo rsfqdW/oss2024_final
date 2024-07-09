@@ -1,4 +1,5 @@
 import asyncio
+import random  # random 모듈 추가
 from chatbot import Chat, register_call
 import os
 import requests
@@ -40,20 +41,22 @@ def who_is(session=None, query='South Korea'):
     except Exception:
         pass
     return "I don't know about "+query
-    
+
+# 운세 리스트 정의
+horoscopes = [
+    "오늘은 좋은 일이 생길 것입니다.",
+    "주의해야 할 일이 있을 수 있습니다.",
+    "건강에 유의하세요.",
+    "사랑운이 좋은 날입니다.",
+    "금전운이 강화된 날입니다."
+]
+
 @register_call("horoscope")
 def get_horoscope(session=None):
     try:
-        return fetch_horoscope()
+        return random.choice(horoscopes)  # 랜덤으로 운세 선택
     except Exception:
         return "I don't know the general horoscope for today"
-
-def fetch_horoscope():
-    url = "https://aztro.sameerkumar.website/?sign=general&day=today"
-    response = requests.post(url)
-    data = response.json()
-    return data['description']
-
 
 first_question = "Hi, how are you?"
 chat = Chat(os.path.join(os.path.dirname(os.path.abspath(__file__)), "chatbot_test.template"))
