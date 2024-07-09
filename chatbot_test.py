@@ -42,14 +42,14 @@ def who_is(session=None, query='South Korea'):
     return "I don't know about "+query
     
 @register_call("horoscope")
-def get_horoscope(session=None, sign='aries'):
+def get_horoscope(session=None):
     try:
-        return fetch_horoscope(sign)
+        return fetch_horoscope()
     except Exception:
-        return "I don't know the horoscope for " + sign
+        return "I don't know the general horoscope for today"
 
-def fetch_horoscope(sign):
-    url = f"https://aztro.sameerkumar.website/?sign={sign}&day=today"
+def fetch_horoscope():
+    url = "https://aztro.sameerkumar.website/?sign=general&day=today"
     response = requests.post(url)
     data = response.json()
     return data['description']
