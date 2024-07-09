@@ -3,6 +3,12 @@
 	{% response %}{% call wiki: %query %}{% endresponse %}
 {% endblock %}
 
+
+{% block %}
+    {% client %}(what is my horoscope for|horoscope for|what is the horoscope for) (?P<sign>\w+) {% endclient %}
+    {% response %}{% call horoscope: %sign %}{% endresponse %}
+{% endblock %}
+
 {% block %}
     {% client %}(how is the weather in|weather in) (?P<city>.*){% endclient %}
     {% response %}{% call weather: %city %}{% endresponse %}

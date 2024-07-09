@@ -1,10 +1,9 @@
 import asyncio
 from chatbot import Chat, register_call
 import os
+import requests
 import wikipedia
 import python_weather
-
-
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -41,6 +40,19 @@ def who_is(session=None, query='South Korea'):
     except Exception:
         pass
     return "I don't know about "+query
+    
+@register_call("horoscope")
+def get_horoscope(session=None, sign='aries'):
+    try:
+        return fetch_horoscope(sign)
+    except Exception:
+        return "I don't know the horoscope for " + sign
+
+def fetch_horoscope(sign):
+    url = f"https://aztro.sameerkumar.website/?sign={sign}&day=today"
+    response = requests.post(url)
+    data = response.json()
+    return data['description']
 
 
 first_question = "Hi, how are you?"
