@@ -46,12 +46,12 @@ horoscopes = [
     "오늘은 좋은 일이 생길 것입니다.",
     "주의해야 할 일이 있을 수 있습니다.",
     "건강에 유의하세요.",
-    "사랑운이 좋은 날입니다.",
+    "사랑운이 좋은 날입니다.",what is the horoscope for
     "금전운이 강화된 날입니다."
 ]
 
 @register_call("horoscope")
-def get_horoscope(session=None, sign = 'leo'):
+def get_horoscope(session=None):
     try:
         return random.choice(horoscopes)
     except Exception:
