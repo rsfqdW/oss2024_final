@@ -1,5 +1,5 @@
 {% block %}
-    {% client %}(what is my horoscope for|horoscope for|what is the horoscope for) (?P<sign>\w+) {% endclient %}
+    {% client %}(what is my horoscope for|horoscope for|what is the horoscope for) (?P<sign>.*) {% endclient %}
     {% response %}{% call horoscope %}{% endresponse %}
 {% endblock %}
 
