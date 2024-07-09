@@ -78,7 +78,7 @@ horoscopes = [
 
 
 @register_call("horoscope")
-def get_horoscope(session=None):
+def get_horoscope(session=None, sign = 'leo'):
     try:
         return random.choice(horoscopes)
     except Exception:
