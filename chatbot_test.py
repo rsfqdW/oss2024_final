@@ -41,8 +41,7 @@ def who_is(session=None, query='South Korea'):
     except Exception:
         pass
     return "I don't know about "+query
-
-# 운세 리스트 정의
+    
 horoscopes = [
     "오늘은 좋은 일이 생길 것입니다.",
     "주의해야 할 일이 있을 수 있습니다.",
@@ -54,7 +53,7 @@ horoscopes = [
 @register_call("horoscope")
 def get_horoscope(session=None):
     try:
-        return random.choice(horoscopes)  # 랜덤으로 운세 선택
+        return random.choice(horoscopes)
     except Exception:
         return "I don't know the general horoscope for today"
 
