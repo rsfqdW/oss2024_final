@@ -1,5 +1,5 @@
 {% block %}
-    {% client %}(what is my horoscope for|horoscope for|what is the horoscope for|today's horoscope|today's fortune is|){% endclient %}
+    {% client %}(what is my horoscope for|horoscope for|what is the horoscope for|today's horoscope|today's fortune is|What is your fortune today?){% endclient %}
     {% response %}{% call horoscope %}{% endresponse %}
 {% endblock %}
 
