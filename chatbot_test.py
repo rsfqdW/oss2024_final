@@ -50,8 +50,9 @@ horoscopes = [
     "금전운이 강화된 날입니다."
 ]
 
+
 @register_call("horoscope")
-def get_horoscope(session=None):
+def get_horoscope(session=None, sign = 'leo'):
     try:
         return random.choice(horoscopes)
     except Exception:
