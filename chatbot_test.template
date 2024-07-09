@@ -1,6 +1,6 @@
 {% block %}
-    {% client %}(what is my horoscope for|horoscope for|what is the horoscope for|today's horoscope|today's fortune is|) (?P<sign>.*) {% endclient %}
-    {% response %}{% call horoscope: %sign %}{% endresponse %}
+    {% client %}(what is my horoscope for|horoscope for|what is the horoscope for|today's horoscope|today's fortune is|){% endclient %}
+    {% response %}{% call horoscope %}{% endresponse %}
 {% endblock %}
 
 {% block %}
