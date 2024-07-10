@@ -3,7 +3,6 @@
     {% response %}{% call horoscope: %sign %}{% endresponse %}
 {% endblock %}
 
-
 {% block %}
 	{% client %}(do you know about|who is|what is) (?P<query>.*){% endclient %}
 	{% response %}{% call wiki: %query %}{% endresponse %}
